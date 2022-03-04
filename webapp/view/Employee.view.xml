@@ -1,0 +1,154 @@
+<mvc:View
+controllerName="assignment8.controller.Employee"
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m"
+xmlns:layout="sap.ui.layout" 
+xmlns:core="sap.ui.core" 
+xmlns:f="sap.f" 
+xmlns:grid="sap.ui.layout.cssgrid">
+	<Shell id="shell">
+		<NavContainer id="app" class="navContainerControl sapUiSmallMarginBottom">
+	
+    		<Page id="employeesPage">
+				<customHeader>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="{FirstName} {LastName}" id="employeeTitle" level="H2"/>
+						<ToolbarSpacer/>
+						<Button text="{i18n>languages}" press="onLanguageButtonPress" tooltip="{i18n>displayoflanguages}"/>
+						<Button icon="sap-icon://sap-ui5" tooltip="{i18n>versionInfo}" press="onVerisonButtonPress"/>
+					</Toolbar>
+				</customHeader>
+
+				<content>
+					<layout:Splitter width="100%">
+						<Panel >
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="{i18n>employeesPanelTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<VBox width="100%">
+								<SearchField liveChange="onEmployeeSearch"/>
+
+								<List id="employeeList" updateFinished="getEmpCount" growing="true" growingThreshold="5" growingScrollToLoad="false" items="{/Employees}"
+									itemPress="handleEmpListItemPress">
+
+									<headerToolbar>
+										<Toolbar>
+											<Title id="empTitle" text="{i18n>totalEmployees}" level="H2"/>
+											<ToolbarSpacer/>
+											<Button tooltip="{i18n>sortEmployees}" icon="sap-icon://sort" press="handleEmployeeSortButtonPressed"/>
+										</Toolbar>
+									</headerToolbar>
+									<items>
+										<StandardListItem title="{FirstName}" type="Active" description="{Title}"/>
+									</items>
+								</List>
+								<layoutData><layout:SplitterLayoutData size="auto"/></layoutData>
+							</VBox>
+						</Panel>
+						<Panel>
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="{i18n>ordersPanelTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<VBox id="orderBox" width="100%">
+								<SearchField liveChange="onOrderSearch"/>
+
+								<List id="orderList" growing="true" updateFinished="getOrderCount" growingThreshold="5" growingScrollToLoad="false" items="{Orders}"
+									itemPress="handleOrderListItemPress">
+									<headerToolbar>
+								
+                                		<Toolbar>
+											<Title id="orderTitle" text="{i18n>totalOrders}" level="H2"/>
+											<ToolbarSpacer/>
+											<Button tooltip="{i18n>sortOrders_tooltip}" icon="sap-icon://sort" press="handleOrderSortButtonPressed"/>
+										</Toolbar>
+									</headerToolbar>
+	
+    								<items>
+										<StandardListItem title="{OrderID}" type="Active" description="{i18n>shipVia} {ShipVia}"/>
+									</items>
+								</List>
+	
+    							<layoutData><layout:SplitterLayoutData size="auto"/></layoutData>
+							</VBox>
+						</Panel>
+						<Panel>
+							<headerToolbar>
+								<Toolbar height="3rem">
+									<Title text="{i18n>orderDetailsPanelTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<VBox id="productDetailsBox" width="100%">
+								<SearchField liveChange="onProductDetailsSearch"/>
+
+								<List id="productDetailsList" updateFinished="getProductDetailsCount" growing="true" growingThreshold="5" growingScrollToLoad="false"
+									items="{Order_Details}" 
+                                    itemPress="">
+
+                 
+
+									<headerToolbar>
+										<Toolbar>
+											<Title id="productDetailsTitle" text="{i18n>totalProducts}" level="H2"/>
+											<ToolbarSpacer/>
+											<Button tooltip="{i18n>sortProducts_tooltip}" icon="sap-icon://sort" press="handleProductDetailsSortButtonPressed"/>
+										</Toolbar>
+									</headerToolbar>
+									<items>
+										<StandardListItem title="{ProductID}" type="Active" description="{Quantity}"/>
+									</items>
+								</List>
+								<layoutData><layout:SplitterLayoutData size="auto"/></layoutData>
+							</VBox>
+						</Panel>
+					</layout:Splitter>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button text="{i18n>employees}" type="Emphasized" press="handleEmployee">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="employeesPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>customers}" press="handleCustomer">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="customersPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>products}" press="handleProduct">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="productsPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>suppliers}" press="handleSupplier">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+	
+    						</layoutData>
+							<customData>
+								<core:CustomData key="target" value="suppliersPage"/>
+							</customData>
+						</Button>
+					</Toolbar>
+				</footer>
+			</Page>
+			</NavContainer>
+    </Shell>
+</mvc:View>

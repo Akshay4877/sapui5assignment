@@ -1,0 +1,99 @@
+<mvc:View
+    controllerName="assignment8.controller.Supplier"
+xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.f" xmlns:grid="sap.ui.layout.cssgrid">
+	<Shell id="shell">
+		<NavContainer id="app" class="navContainerControl sapUiSmallMarginBottom">
+	
+
+			<Page id="suppliersPage">
+				<customHeader>
+					<Toolbar>
+						<Button icon="sap-icon://nav-back" tooltip="{i18n>navBack_tooltip}" press="handleBack"></Button>
+						<ToolbarSpacer/>
+						<Title text="{i18n>supplierssPageTitle}" level="H2"/>
+						<ToolbarSpacer/>
+						<Button text="{i18n>languages}" press="onLanguageButtonPress" tooltip="{i18n>displayoflanguages}"/>
+						<Button icon="sap-icon://sap-ui5" tooltip="{i18n>versionInfo}" press="onVerisonButtonPress"/>
+					</Toolbar>
+				</customHeader>
+				<content>
+					<Panel>
+						<Button text="{i18n>openSupplierDialog}" press="openSupplierDialog"></Button>
+					</Panel>
+					<Panel id="supplierTablePanel">
+						<Table id="selectedSuppliersTable" items="{selectedModel>/Suppliers}" growing="true" growingThreshold="5" growingScrollToLoad="false"
+							mode="Delete" delete="onDelete" selectionChange="onSelectedSupplierSelectionChange">
+                            <!-- onSelectedSupplierSelectionChange NOT FOUND -->
+							<columns>
+								<Column ><Text text="{i18n>supplierID}"/></Column>
+								<Column ><Text text="{i18n>companyName}"/></Column>
+								<Column ><Text text="{i18n>contactName}"/></Column>
+								<Column ><Text text="{i18n>contactTitle}"/></Column>
+								<Column ><Text text="{i18n>address}"/></Column>
+								<Column ><Text text="{i18n>city}"/></Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{selectedModel>SupplierID}"/>
+										<Text text="{selectedModel>CompanyName}"/>
+										<Text text="{selectedModel>ContactName}"/>
+										<Text text="{selectedModel>ContactTitle}"/>
+										<Text text="{selectedModel>Address}"/>
+										<Text text="{selectedModel>City}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</Panel>
+				</content>
+			
+            	<footer>
+					<Toolbar>
+			
+            			<Button text="{i18n>employees}" press="handleEmployee">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="employeesPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+			
+            			<Button text="{i18n>customers}" press="handleCustomer">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="customersPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+			
+            			<Button text="{i18n>products}" press="handleProduct">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="productsPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+			
+            			<Button text="{i18n>suppliers}" type="Emphasized" press="handleSupplier">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="suppliersPage"/>
+							</customData>
+						</Button>
+			
+            		</Toolbar>
+				</footer>
+			</Page>
+			</NavContainer>
+    </Shell>
+</mvc:View>

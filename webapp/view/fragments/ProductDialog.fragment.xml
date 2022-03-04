@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form"
+	xmlns:grid="sap.ui.layout.cssgrid">
+	<Dialog>
+		<form:SimpleForm title="{i18n>product} {ProductID}">
+			<form:content>
+				<Label text="{i18n>productName}"></Label>
+				<Text text="{ProductName}"></Text>
+				<Label text="{i18n>supplierID}"></Label>
+				<Link text="{SupplierID}" press="onSupplierIDPress"/>
+				<Label text="{i18n>categoryID}"></Label>
+				<Link text="{CategoryID}" press="onCategoryIDPress"/>
+				<Label text="{i18n>quantityPerUnit}"></Label>
+				<Text text="{QuantityPerUnit}"></Text>
+				<Label text="{i18n>unitPrice}"></Label>
+				<Text text="{UnitPrice}"></Text>
+				<Label text="{i18n>unitsInStock}"></Label>
+				<Text text="{UnitsInStock}"></Text>
+				<Label text="{i18n>unitsOnOrder}"></Label>
+				<Text text="{UnitsOnOrder}"></Text>
+				<Label text="{i18n>reorderLevel}"></Label>
+				<Text text="{ReorderLevel}"></Text>
+				<Label text="{i18n>discontinued}"></Label>
+				<Text text="{Discontinued}"></Text>
+			</form:content>
+		</form:SimpleForm>
+		<Button text="{i18n>close}" press="onClose"></Button>
+	</Dialog>
+</core:FragmentDefinition>

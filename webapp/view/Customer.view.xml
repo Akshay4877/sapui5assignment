@@ -1,0 +1,113 @@
+<mvc:View
+controllerName="assignment8.controller.Customer"
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m"
+xmlns:layout="sap.ui.layout" 
+xmlns:core="sap.ui.core" 
+xmlns:f="sap.f" 
+xmlns:grid="sap.ui.layout.cssgrid">
+<Shell id="shell">
+		<NavContainer id="app" class="navContainerControl sapUiSmallMarginBottom">
+
+     <Page id="customersPage">
+				<customHeader>
+					<Toolbar>
+						<Button icon="sap-icon://nav-back" tooltip="{i18n>navBack_tooltip}" press="handleBack"></Button>
+						<ToolbarSpacer/>
+						<Title text="{ContactName}" id="customerTitle" level="H2"/>
+						<ToolbarSpacer/>
+						<Button text="{i18n>languages}" press="onLanguageButtonPress" tooltip="{i18n>displayoflanguages}"/>
+						<Button icon="sap-icon://sap-ui5" tooltip="{i18n>versionInfo}" press="onVerisonButtonPress"/>
+					</Toolbar>
+				</customHeader>
+				<content>
+					<Panel id="customerHeaderId">
+						<HBox>
+							<f:Avatar src="https://cdn-icons-png.flaticon.com/512/1308/1308491.png" displaySize="XL"></f:Avatar>
+							<Label></Label>
+							<VBox class="sapUiResponsiveMargin">
+								<Title text="{CompanyName}" level="H2"></Title>
+								<Text text="{CustomerID}"></Text>
+								<Label></Label>
+								<Link text="{Phone}"></Link>
+							</VBox>
+						</HBox>
+					</Panel>
+
+					<Panel>
+						<Table id="customersTable" updateFinished="getCustomerCount" items="{/Customers}" growing="true" growingThreshold="5"
+							growingScrollToLoad="false" mode="SingleSelectLeft" selectionChange="onCustomerSelectionChange">
+							<headerToolbar>
+								<Toolbar>
+									<Title id="customerTableTitle" text="Total Customers" level="H2"/>
+									<ToolbarSpacer/>
+									<Button tooltip="{i18n>customerSort_tooltip}" icon="sap-icon://sort" press="handleCustomersSortButtonPressed"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column ><Text text="{i18n>customerID}"/></Column>
+								<Column ><Text text="{i18n>companyName}"/></Column>
+								<Column ><Text text="{i18n>contactName}"/></Column>
+								<Column ><Text text="{i18n>contactTitle}"/></Column>
+								<Column ><Text text="{i18n>address}"/></Column>
+								<Column ><Text text="{i18n>city}"/></Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{CustomerID}"/>
+										<Text text="{CompanyName}"/>
+										<Text text="{ContactName}"/>
+										<Text text="{ContactTitle}"/>
+										<Text text="{Address}"/>
+										<Text text="{City}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</Panel>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button text="{i18n>employees}"  press="handleEmployee">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="employeesPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>customers}" type="Emphasized" press="handleCustomer">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="customersPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>products}" press="handleProduct">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="productsPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>suppliers}" press="handleSupplier">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="suppliersPage"/>
+							</customData>
+						</Button>
+					</Toolbar>
+				</footer>
+			</Page>
+    		</NavContainer>
+    </Shell>
+</mvc:View>

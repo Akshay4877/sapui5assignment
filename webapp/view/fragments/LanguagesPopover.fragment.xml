@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+	<Popover title="Languages" class="sapUiContentPadding" placement="Bottom">
+		<VBox>
+			<List>
+				<StandardListItem title="Germany"></StandardListItem>
+				<StandardListItem title="US"></StandardListItem>
+				<StandardListItem title="UK"></StandardListItem>
+				<StandardListItem title="India"></StandardListItem>
+				<StandardListItem title="Italy"></StandardListItem>
+			</List>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleEmployeeSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>employeeID}" key="EmployeeID" selected="true" />
+			<ViewSettingsItem text="{i18n>lastName}" key="LastName" />
+			<ViewSettingsItem text="{i18n>firstName}" key="FirstName" />
+			<ViewSettingsItem text="{i18n>title}" key="Title" />
+			<ViewSettingsItem text="{i18n>birthDate}" key="BirthDate" />
+			<ViewSettingsItem text="{i18n>hireName}" key="HireDate" />
+			<ViewSettingsItem text="{i18n>address}" key="Address" />
+			<ViewSettingsItem text="{i18n>city}" key="City" />
+			<ViewSettingsItem text="{i18n>region}" key="Region" />
+			<ViewSettingsItem text="{i18n>postalCode}" key="PostalCode" />
+			<ViewSettingsItem text="{i18n>country}" key="Country" />
+			<ViewSettingsItem text="{i18n>homePhone}" key="HomePhone" />
+			<ViewSettingsItem text="{i18n>extension}" key="Extension" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

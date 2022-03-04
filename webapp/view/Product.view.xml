@@ -1,0 +1,97 @@
+<mvc:View
+controllerName="assignment8.controller.Product"
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m"
+xmlns:layout="sap.ui.layout" 
+xmlns:core="sap.ui.core" 
+xmlns:f="sap.f" 
+xmlns:grid="sap.ui.layout.cssgrid">
+
+	<Shell id="shell">
+		<NavContainer id="app" class="navContainerControl sapUiSmallMarginBottom">
+	
+			<Page id="productsPage" title="">
+				<customHeader>
+					<Toolbar>
+						<Button icon="sap-icon://nav-back" tooltip="{i18n>navBack_tooltip}" press="handleBack"></Button>
+						<ToolbarSpacer/>
+						<Title text="{i18n>productsPageTitle}" level="H2"/>
+						<ToolbarSpacer/>
+						<Button text="{i18n>languages}" press="onLanguageButtonPress" tooltip="{i18n>displayoflanguages}"/>
+
+						<Button icon="sap-icon://sap-ui5" tooltip="{i18n>versionInfo}" press="onVerisonButtonPress"/>
+
+					</Toolbar>
+				</customHeader>
+				<content>
+					<Panel width="100%" class="sapUiResponsiveMargin">
+						<headerToolbar>
+							<Toolbar height="3rem">
+								<Title id="productGridListTitle" text="{i18n>totalProducts}"/>
+							</Toolbar>
+						</headerToolbar>
+						<content>
+							<f:GridList growing="true" updateFinished="getProductCount" growingThreshold="9" growingScrollToLoad="false"
+								itemPress="onGridProductItemPress" items="{ path: '/Products' }">
+								<f:customLayout>
+									<grid:GridBoxLayout boxMinWidth="17rem"/>
+								</f:customLayout>
+								<CustomListItem type="Active">
+									<VBox height="100%">
+										<VBox class="sapUiSmallMargin">
+											<layoutData>
+												<FlexItemData growFactor="1" shrinkFactor="0"/>
+											</layoutData>
+											<Title text="{ProductName}" wrapping="true"/>
+											<Label text="{UnitPrice}" wrapping="true"/>
+										</VBox>
+									</VBox>
+								</CustomListItem>
+							</f:GridList>
+						</content>
+					</Panel>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button text="{i18n>employees}"  press="handleEmployee">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="employeesPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>customers}" press="handleCustomer">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="customersPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>products}" type="Emphasized" press="handleProduct">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="productsPage"/>
+							</customData>
+						</Button>
+						<ToolbarSpacer></ToolbarSpacer>
+						<Button text="{i18n>suppliers}" press="handleSupplier">
+							<layoutData>
+								<FlexItemData growFactor="1"/>
+							</layoutData>
+							<customData>
+								<core:CustomData key="target" value="suppliersPage"/>
+							</customData>
+						</Button>
+					</Toolbar>
+				</footer>
+			</Page>
+			</NavContainer>
+    </Shell>
+</mvc:View>
